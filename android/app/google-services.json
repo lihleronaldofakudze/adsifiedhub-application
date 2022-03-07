@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "9994827317",
+    "project_id": "eswatini-classifieds",
+    "storage_bucket": "eswatini-classifieds.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9994827317:android:f7eef4126184d2a6b9e37c",
+        "android_client_info": {
+          "package_name": "io.cloutdevelopers.adsifiedhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9994827317-47bidis3gfful2ahkqgaevil2s8mpp5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.cloutdevelopers.adsifiedhub",
+            "certificate_hash": "69e077d02e0633c2811aab49f69a71cd9395d0d4"
+          }
+        },
+        {
+          "client_id": "9994827317-gk57mjtsj4m3qakob0mdoj4fkgtbl6h6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0cCNn31GuSL57JQLvwnuXQ7qglbKs7xY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9994827317-gk57mjtsj4m3qakob0mdoj4fkgtbl6h6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
