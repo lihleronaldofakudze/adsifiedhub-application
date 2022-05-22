@@ -1,8 +1,7 @@
 import 'package:adsifiedhub/models/Advert.dart';
 import 'package:adsifiedhub/models/CurrentUser.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -66,7 +65,8 @@ class MainListWidget extends StatelessWidget {
                                 color: Colors.red),
                           ),
                           Text(
-                            '${adverts[index].category} - ${adverts[index].subCategory} - ${adverts[index].subSubCategory}',
+                            '${adverts[index].firstCategory} - ${adverts[index].secondaryCategory} - ${adverts[index].thirdCategory}',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],
@@ -168,7 +168,8 @@ class MainListWidget extends StatelessWidget {
                                 color: Colors.red),
                           ),
                           Text(
-                            '${adverts[index].category} - ${adverts[index].subCategory} - ${adverts[index].subSubCategory}',
+                            '${adverts[index].firstCategory}\n${adverts[index].secondaryCategory}\n${adverts[index].thirdCategory}',
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(color: Colors.grey),
                           ),
                         ],

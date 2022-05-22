@@ -11,8 +11,8 @@ import 'package:adsifiedhub/screens/register_screen.dart';
 import 'package:adsifiedhub/screens/settings_screen.dart';
 import 'package:adsifiedhub/screens/terms_screen.dart';
 import 'package:adsifiedhub/screens/user_adverts_screen.dart';
-import 'package:adsifiedhub/services/auth.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/auth_service.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<CurrentUser?>.value(
-            value: AuthService().user, initialData: CurrentUser('')),
+            value: AuthService().user, initialData: CurrentUser()),
         StreamProvider<List<Advertiser>>.value(
           value: DatabaseService().advertisers,
           initialData: [],

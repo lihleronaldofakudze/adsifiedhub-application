@@ -1,4 +1,4 @@
-import 'package:adsifiedhub/services/auth.dart';
+import 'package:adsifiedhub/services/auth_service.dart';
 import 'package:adsifiedhub/widgets/ok_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -121,7 +121,29 @@ class _LoginScreenState extends State<LoginScreen> {
                 IconButton(
                     onPressed: () {}, icon: FaIcon(FontAwesomeIcons.facebook)),
                 IconButton(
-                    onPressed: () {}, icon: FaIcon(FontAwesomeIcons.google)),
+                    onPressed: () async {
+                      setState(() {
+                        _isLoading = true;
+                      });
+                      final result = await AuthService().signInWithGoogle();
+                      if (result != null) {
+                        setState(() {
+                          _isLoading = false;
+                        });
+                        Navigator.pop(context);
+                      } else {
+                        setState(() {
+                          _isLoading = false;
+                        });
+                        showDialog(
+                            context: context,
+                            builder: (_) => okDialogWidget(
+                                context: context,
+                                message:
+                                    'Something went wrong, Please try again'));
+                      }
+                    },
+                    icon: FaIcon(FontAwesomeIcons.google)),
               ],
             ),
             SizedBox(

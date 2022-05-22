@@ -3,7 +3,6 @@ import 'package:adsifiedhub/models/CurrentUser.dart';
 import 'package:adsifiedhub/widgets/drawer_widget.dart';
 import 'package:adsifiedhub/widgets/login_popup_widget.dart';
 import 'package:adsifiedhub/widgets/logout_popup_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -41,7 +40,7 @@ class HomeScreen extends StatelessWidget {
           'Post',
           style: TextStyle(fontSize: 18),
         ),
-        icon: FaIcon(FontAwesomeIcons.ad),
+        icon: FaIcon(FontAwesomeIcons.rectangleAd),
       ),
       drawer: drawerWidget(context: context),
       appBar: AppBar(
@@ -53,8 +52,8 @@ class HomeScreen extends StatelessWidget {
               : logoutPopupWidget(context: context)
         ],
       ),
-      body: StaggeredGridView.countBuilder(
-        crossAxisCount: 4,
+      body: MasonryGridView.count(
+        crossAxisCount: 2,
         itemCount: categories.length,
         itemBuilder: (BuildContext context, int index) => Card(
             elevation: 10.0,
@@ -85,7 +84,6 @@ class HomeScreen extends StatelessWidget {
                 getSubsWidget(categories[index].subs)
               ],
             )),
-        staggeredTileBuilder: (int index) => new StaggeredTile.fit(2),
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 4.0,
       ),

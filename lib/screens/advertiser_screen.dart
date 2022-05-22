@@ -1,5 +1,5 @@
 import 'package:adsifiedhub/models/Advertiser.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -22,7 +22,7 @@ class _AdvertiserScreenState extends State<AdvertiserScreen> {
           Advertiser? advertiser = snapshot.data;
           return Scaffold(
             appBar: AppBar(
-              title: Text(advertiser!.name),
+              title: Text(advertiser!.companyName),
               actions: [
                 IconButton(
                     onPressed: () {},
@@ -68,7 +68,7 @@ class _AdvertiserScreenState extends State<AdvertiserScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    'Email : ${advertiser.email}\nNumber : ${advertiser.number} / ${advertiser.anotherNumber}',
+                    'Email : ${advertiser.emailAddress}\nNumber : ${advertiser.phoneNumber} / ${advertiser.secondaryNumber}',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -79,7 +79,7 @@ class _AdvertiserScreenState extends State<AdvertiserScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    'Business Type : ${advertiser.type}',
+                    'Business Type : ${advertiser.businessType}',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),

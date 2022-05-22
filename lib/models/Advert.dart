@@ -6,10 +6,10 @@ class Advert {
   final List images;
   final String title;
   final String description;
-  final double price;
-  final String category;
-  final String subCategory;
-  final String subSubCategory;
+  final int price;
+  final String firstCategory;
+  final String secondaryCategory;
+  final String thirdCategory;
   final String condition;
   final String subscription;
   final String negotiable;
@@ -20,7 +20,7 @@ class Advert {
   Advert(
       {required this.id,
       required this.uid,
-      required this.category,
+      required this.firstCategory,
       required this.condition,
       required this.images,
       required this.price,
@@ -28,9 +28,9 @@ class Advert {
       required this.postedAt,
       required this.title,
       required this.updatedAt,
-      required this.subSubCategory,
+      required this.thirdCategory,
       required this.negotiable,
       required this.likes,
-      required this.subCategory,
+      required this.secondaryCategory,
       required this.subscription});
 }

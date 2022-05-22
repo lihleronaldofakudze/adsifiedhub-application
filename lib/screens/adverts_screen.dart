@@ -1,5 +1,5 @@
 import 'package:adsifiedhub/models/Advert.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/widgets/main_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,8 @@ class AdvertsScreen extends StatelessWidget {
           title: Text(args['title']),
         ),
         body: StreamProvider<List<Advert>>.value(
-          value: DatabaseService(byCategory: args['title']).getCategories,
+          value:
+              DatabaseService(byFirstCategory: args['title']).getFirstCategory,
           initialData: [],
           child: MainListWidget(),
         ),
@@ -27,7 +28,8 @@ class AdvertsScreen extends StatelessWidget {
           title: Text(args['title']),
         ),
         body: StreamProvider<List<Advert>>.value(
-          value: DatabaseService(bySubCategory: args['title']).getSubCategories,
+          value: DatabaseService(bySecondCategory: args['title'])
+              .getSecondCategory,
           initialData: [],
           child: MainListWidget(),
         ),
@@ -38,8 +40,8 @@ class AdvertsScreen extends StatelessWidget {
           title: Text(args['title']),
         ),
         body: StreamProvider<List<Advert>>.value(
-          value: DatabaseService(bySubSubCategory: args['title'])
-              .getSubSubCategories,
+          value:
+              DatabaseService(byThirdCategory: args['title']).getThirdCategory,
           initialData: [],
           child: MainListWidget(),
         ),

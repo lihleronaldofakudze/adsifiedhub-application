@@ -24,7 +24,7 @@ class AdvertisersListWidget extends StatelessWidget {
               ),
               ListTile(
                 title: Text(
-                  '${advertisers[index].name}',
+                  '${advertisers[index].companyName}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 subtitle: Text(

@@ -7,7 +7,7 @@ import 'package:adsifiedhub/models/Package.dart';
 import 'package:adsifiedhub/models/SubCategory.dart';
 import 'package:adsifiedhub/screens/login_screen.dart';
 import 'package:adsifiedhub/screens/register_screen.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/services/storage.dart';
 import 'package:adsifiedhub/widgets/loading_widget.dart';
 import 'package:adsifiedhub/widgets/ok_dialog_widget.dart';
@@ -382,7 +382,7 @@ class _AddAdScreenState extends State<AddAdScreen> {
                                   setState(() {
                                     _isLoading = true;
                                   });
-                                  if (advertiser!.free <= 5) {
+                                  if (advertiser!.numberOfFreeAds <= 5) {
                                     if (_images.length != 0 &&
                                         _titleController.text.isNotEmpty &&
                                         _descriptionController
@@ -401,9 +401,9 @@ class _AddAdScreenState extends State<AddAdScreen> {
                                                 title: _titleController.text,
                                                 description:
                                                     _descriptionController.text,
-                                                category: _category,
-                                                subCategory: _subCategory,
-                                                subSubCategory: _subSubCategory,
+                                                firstCategory: _category,
+                                                secondCategory: _subCategory,
+                                                thirdCategory: _subSubCategory,
                                                 condition: _condition,
                                                 negotiable: _neg,
                                                 price: double.parse(

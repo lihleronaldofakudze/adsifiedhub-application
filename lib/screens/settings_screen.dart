@@ -1,6 +1,6 @@
 import 'package:adsifiedhub/models/Advertiser.dart';
 import 'package:adsifiedhub/models/CurrentUser.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

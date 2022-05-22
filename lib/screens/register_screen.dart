@@ -1,5 +1,5 @@
-import 'package:adsifiedhub/services/auth.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/auth_service.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/widgets/loading_widget.dart';
 import 'package:adsifiedhub/widgets/ok_dialog_widget.dart';
 import 'package:flutter/material.dart';
@@ -114,16 +114,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 await DatabaseService(uid: result.uid)
                                     .setAdvertiserProfile(
                                         image: Constants().ads,
-                                        email: _emailController.text,
-                                        name: _nameController.text,
-                                        number: '+26876123456',
-                                        anotherNumber: '+26879123456',
-                                        region: 'Hhohho',
-                                        city: 'Mbabane',
-                                        streetName: 'Sidvwashini',
-                                        website: 'https://adsifiedhub.com/',
-                                        type: 'Individual',
-                                        free: 0)
+                                        emailAddress: _emailController.text,
+                                        companyName: _nameController.text,
+                                        phoneNumber: '+26879499014',
+                                        secondaryNumber: '+26876960405',
+                                        region: 'Manzini',
+                                        city: 'Lobamba Lomdzala',
+                                        streetName: 'Mahlanya',
+                                        websiteLink: 'https://adsifiedhub.com/',
+                                        businessType: 'Sole Proprietorship',
+                                        numberOfFreeAds: 0,
+                                        totalAds: 0)
                                     .then((value) {
                                   setState(() {
                                     _isLoading = false;

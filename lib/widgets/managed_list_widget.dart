@@ -1,6 +1,5 @@
 import 'package:adsifiedhub/models/Advert.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -64,7 +63,7 @@ class ManagedListWidget extends StatelessWidget {
                               color: Colors.red),
                         ),
                         Text(
-                          '${adverts[index].category} - ${adverts[index].subCategory} - ${adverts[index].subSubCategory}',
+                          '${adverts[index].firstCategory} - ${adverts[index].secondaryCategory} - ${adverts[index].thirdCategory}',
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],

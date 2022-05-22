@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:adsifiedhub/models/Advertiser.dart';
 import 'package:adsifiedhub/models/CurrentUser.dart';
-import 'package:adsifiedhub/services/database.dart';
+import 'package:adsifiedhub/services/database_service.dart';
 import 'package:adsifiedhub/widgets/loading_widget.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -22,16 +22,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   _pickImage(
       {required String uid,
-      required String email,
-      required String name,
-      required String number,
-      required String anotherNumber,
+      required String emailAddress,
+      required String companyName,
+      required String phoneNumber,
+      required String secondaryNumber,
       required String region,
       required String city,
       required String streetName,
-      required String website,
-      required String type,
-      required int free}) async {
+      required String websiteLink,
+      required String businessType,
+      required int numberOfFreeAds,
+      required int totalAds}) async {
     FilePickerResult? result = await FilePicker.platform
         .pickFiles(type: FileType.image, allowCompression: true);
 
@@ -50,16 +51,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
         await reference.getDownloadURL().then((value) async {
           await DatabaseService(uid: uid).setAdvertiserProfile(
               image: value,
-              email: email,
-              name: name,
-              number: number,
-              anotherNumber: anotherNumber,
+              emailAddress: emailAddress,
+              companyName: companyName,
+              phoneNumber: phoneNumber,
+              secondaryNumber: secondaryNumber,
               region: region,
               city: city,
               streetName: streetName,
-              website: website,
-              type: type,
-              free: free);
+              websiteLink: websiteLink,
+              businessType: businessType,
+              numberOfFreeAds: numberOfFreeAds,
+              totalAds: totalAds);
         });
       });
     }
@@ -75,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Advertiser? advertiser = snapshot.data;
           return Scaffold(
             appBar: AppBar(
-              title: Text(advertiser!.name),
+              title: Text(advertiser!.companyName),
               actions: [
                 IconButton(
                     onPressed: () {},
@@ -97,17 +99,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () => _pickImage(
-                        uid: currentUser.uid,
-                        name: advertiser.name,
+                        uid: currentUser.uid!,
+                        companyName: advertiser.companyName,
                         city: advertiser.city,
                         streetName: advertiser.streetName,
                         region: advertiser.region,
-                        number: advertiser.number,
-                        anotherNumber: advertiser.anotherNumber,
-                        website: advertiser.website,
-                        type: advertiser.type,
-                        email: advertiser.email,
-                        free: advertiser.free),
+                        phoneNumber: advertiser.phoneNumber,
+                        secondaryNumber: advertiser.secondaryNumber,
+                        websiteLink: advertiser.websiteLink,
+                        businessType: advertiser.businessType,
+                        emailAddress: advertiser.emailAddress,
+                        numberOfFreeAds: advertiser.numberOfFreeAds,
+                        totalAds: advertiser.totalAds),
                     child: Text('Change Profile Picture')),
                 Divider(),
                 ListTile(
@@ -135,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    'Email : ${advertiser.email}\nNumber : ${advertiser.number} / ${advertiser.anotherNumber}',
+                    'Email : ${advertiser.emailAddress}\nNumber : ${advertiser.phoneNumber} / ${advertiser.secondaryNumber}',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
@@ -146,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
-                    'N0 of Free Adverts : ${advertiser.free}\nBusiness Type : ${advertiser.type}',
+                    'N0 of Free Adverts : ${advertiser.numberOfFreeAds}\nBusiness Type : ${advertiser.businessType}',
                     style: TextStyle(fontSize: 20),
                   ),
                 ),
